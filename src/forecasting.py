@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-from data_processing import load_data
+from src.data_processing import load_data
 
 df = load_data()
 

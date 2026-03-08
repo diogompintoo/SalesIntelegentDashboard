@@ -13,6 +13,9 @@ from src.data_processing import (
     sales_by_month
 )
 
+# Forecasting
+from src.forecasting import prediction
+
 # Page title
 st.title("Sales Intelligent Dashboard")
 
@@ -41,3 +44,9 @@ st.bar_chart(sales_by_region(df_filtered))
 # By month
 st.header("Revenue by month")
 st.line_chart(sales_by_month(df_filtered))
+
+# Display next month predict
+st.header("Predicted Revenue Next Month")
+st.metric("Forecasted Revenue",
+    round(prediction[0],2)
+)

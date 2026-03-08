@@ -19,18 +19,25 @@ st.title("Sales Intelligent Dashboard")
 # Load data
 df = load_data()
 
-# Metrics
-st.header("Global Revenue")
-st.write(get_global_revenue(df))
+# KPI
+st.metric("Total Revenue", get_global_revenue(df))
 
+# Filter
+region =st.selectbox("Select Region", df["region"].unique())
+
+# Filter dataset
+df_filtered = df[df["region"]== region]
+
+
+                    # Charts
 # By product
 st.header("Revenue by Product")
-st.bar_chart(sales_by_product(df))
+st.bar_chart(sales_by_product(df_filtered))
 
 # By region
 st.header("Revenue by region")
-st.bar_chart(sales_by_region(df))
+st.bar_chart(sales_by_region(df_filtered))
 
 # By month
 st.header("Revenue by month")
-st.line_chart(sales_by_month(df))
+st.line_chart(sales_by_month(df_filtered))

@@ -1,23 +1,26 @@
+import os
 import pandas as pd
 
-#[L4 to L6] Load dataset
+#[L5 to L9] Load dataset
 def load_data():
-    df = pd.read_csv("../data/sales_data.csv")
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    file_path = os.path.join(base_dir, "data","sales_data.csv")
+    df = pd.read_csv(file_path)
     return df
 
-#[L9 and L10] Calculate total revenue
+#[L11 and L13] Calculate total revenue
 def get_global_revenue (df):
     return df["revenue"].sum()
 
-#[L13 and L14] Revenue by product
+#[L16 and L17] Revenue by product
 def sales_by_product (df):
     return df.groupby("product")["revenue"].sum()
 
-#[L17 and L18]
+#[L20 and L21]
 def sales_by_region (df):
     return df.groupby("region")["revenue"].sum()
 
-#[L20 to L25] Revenue by month
+#[L24 to L28] Revenue by month
 def sales_by_month(df):
 
     df["date"] = pd.to_datetime(df["date"])

@@ -56,7 +56,7 @@ Run the dashboard:
 streamlit run dashboard/app.py
 
 ## Dashboard Preview
-![Sales Dashboard(dashboard.png)]
+![Sales Dashboard](dashboard.png)
 
 ## Author
 
